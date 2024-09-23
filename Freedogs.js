@@ -220,7 +220,7 @@ class FreeDogsAPIClient {
                 const userId = userData.id;
                 const firstName = userData.first_name;
 
-                console.log(`========== Tài khoản ${i + 1} | ${firstName.green} ==========`);
+                console.log(`========== Akun Ke ${i + 1} | ${firstName.green} ==========`);
 
                 let token = tokens[userId];
                 let needNewToken = !token || this.isExpired(token);
