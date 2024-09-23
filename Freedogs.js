@@ -194,7 +194,7 @@ class FreeDogsAPIClient {
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
         } else {
-            this.log(`Không thể lấy danh sách nhiệm vụ Untuk akun ${userId}: ${taskListResult.error}`, 'error');
+            this.log(`Tidak dapat memperoleh daftar taks Untuk akun ${userId}: ${taskListResult.error}`, 'error');
         }
     }
 
