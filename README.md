@@ -19,7 +19,7 @@ npm install
 5 • Run bot
 ```bash
 node Freedogs.js
-`
+```
 
 [ JOINTELEGRAM CHANNEL](https://t.me/Pumpbtcxyz)
 | [FOLLOW MY TWITTER](https://x.com/Nhia1st)
