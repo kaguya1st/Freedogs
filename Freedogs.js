@@ -79,10 +79,10 @@ class FreeDogsAPIClient {
             
             if (parsedPayload.exp) {
                 const expirationDate = DateTime.fromSeconds(parsedPayload.exp).toLocal();
-                this.log(colors.green(`FreeDogs Auto claim By_Kaguya | Queri  di ambil pada : ${expirationDate.toFormat('yyyy-MM-dd HH:mm:ss')}`));
+                this.log(colors.green(`FreeDogs Auto claim By_Kaguya | Query  di ambil pada : ${expirationDate.toFormat('yyyy-MM-dd HH:mm:ss')}`));
                 
                 const isExpired = now > parsedPayload.exp;
-                this.log(colors.cyan(`Apakah tokennya sudah habis masa berlakunya?? ${isExpired ? 'Benar sekali, Anda perlu mengganti Query nya bro' : 'Belum..percepat kecepatan penuh'}`));
+                this.log(colors.cyan(`Apakah Query nya sudah habis masa berlakunya?? ${isExpired ? 'Benar sekali, Anda perlu mengganti Query nya bro' : 'Belum..percepat kecepatan penuh'}`));
                 
                 return isExpired;
             } else {
