@@ -187,14 +187,14 @@ class FreeDogsAPIClient {
                 this.log(`Mengerjakan taks: ${task.name}`, 'info');
                 const completeResult = await this.completeTask(token, task.id);
                 if (completeResult.success) {
-                    this.log(`${`Làm nhiệm vụ`.white} ${task.name.yellow} Selesai  | Berhasil mendapatkan  : ${task.rewardParty.toString().green}`);
+                    this.log(`${`mengerjakan taks`.white} ${task.name.yellow} Selesai  | Berhasil mendapatkan  : ${task.rewardParty.toString().green}`);
                 } else {
                     this.log(`Không thể hoàn thành nhiệm vụ ${task.name}: ${completeResult.error}`, 'error');
                 }
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
         } else {
-            this.log(`Không thể lấy danh sách nhiệm vụ cho tài khoản ${userId}: ${taskListResult.error}`, 'error');
+            this.log(`Không thể lấy danh sách nhiệm vụ Untuk akun ${userId}: ${taskListResult.error}`, 'error');
         }
     }
 
@@ -230,13 +230,13 @@ class FreeDogsAPIClient {
                     const apiResult = await this.callAPI(initData);
                     
                     if (apiResult.success) {
-                        this.log(`Lấy token Selesai  cho tài khoản ${userId}`, 'success');
+                        this.log(`mengambil  token Selesai  Untuk akun ${userId}`, 'success');
                         tokens[userId] = apiResult.data.token;
                         token = apiResult.data.token;
                         fs.writeFileSync(tokenFile, JSON.stringify(tokens, null, 2));
                         this.log(`Token baru telah disimpan untuk akun tersebut ${userId}`, 'info');
                     } else {
-                        this.log(`Lấy token thất bại cho tài khoản ${userId}: ${apiResult.error}`, 'error');
+                        this.log(`mengambil  token gagal untuk akun tersebut  ${userId}: ${apiResult.error}`, 'error');
                         continue;
                     }
                 }
@@ -247,12 +247,12 @@ class FreeDogsAPIClient {
                     if (gameInfoResult.data.coinPoolLeft > 0) {
                         await this.collectCoin(token, gameInfoResult.data);
                     } else {
-                        this.log(`Không có coin để thu thập cho tài khoản ${userId}`, 'warning');
+                        this.log(`Tidak ada koin untuk dikumpulkan Untuk akun ${userId}`, 'warning');
                     }
 
                     await this.processTasks(token, userId);
                 } else {
-                    this.log(`Không thể lấy thông tin game cho tài khoản ${userId}: ${gameInfoResult.error}`, 'error');
+                    this.log(`Tidak dapat memperoleh informasi game Untuk akun ${userId}: ${gameInfoResult.error}`, 'error');
                 }
 
                 await new Promise(resolve => setTimeout(resolve, 1000));
